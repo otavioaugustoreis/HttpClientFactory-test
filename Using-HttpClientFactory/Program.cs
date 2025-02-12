@@ -6,6 +6,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient("JsonPlaceholderApi", client =>
+{
+    client.BaseAddress = new Uri("https://util.devi.tools/api/v2/authorize/");
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("learning");
+});
+
 
 var app = builder.Build();
 
